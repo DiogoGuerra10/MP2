@@ -20,9 +20,9 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Install dependencies for MP2
+      - name: Install dependencies
         run: npm install
-        working-directory: ./MP2
+        working-directory: ./mini2-app
 
   run-lint:
     runs-on: ubuntu-latest
@@ -36,10 +36,10 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Install dependencies for MP2
+      - name: Install dependencies
         run: npm install
-        working-directory: ./MP2
+        working-directory: ./mini2-app
 
       - name: Run lint
         run: npm run lint
-        working-directory: ./MP2
+        working-directory: ./mini2-app
