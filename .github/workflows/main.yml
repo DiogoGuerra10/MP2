@@ -61,5 +61,5 @@ jobs:
         working-directory: ./mini2-app
 
       - name: Run tests
-        run: npx jest --config jest.config.ts
+        run: npm run test -- --verbose
         working-directory: ./mini2-app
