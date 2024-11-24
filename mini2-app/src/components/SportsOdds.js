@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'; // Importando PropTypes
+import { useGetOddsQuery } from '../api/OddsApi.js'; // Importando o hook para ir buscar as odds
 
 const Odds = ({ sportKey, apiKey, regions, markets }) => {
   const {

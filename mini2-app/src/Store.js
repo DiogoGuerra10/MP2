@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { oddsApi } from './api/OddsApi'; // Importe o serviço
+import { oddsApi } from './api/OddsApi.js'; // Importe o serviço
 
 export const store = configureStore({
   reducer: {

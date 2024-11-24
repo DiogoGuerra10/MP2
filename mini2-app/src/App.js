@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SportsOdds from './components/SportsOdds';
+import SportsOdds from './components/SportsOdds.js';
 
 const App = () => {
   return (
