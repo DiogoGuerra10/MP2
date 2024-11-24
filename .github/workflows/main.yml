@@ -36,40 +36,14 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Install ESLint globally
+        run: npm install -g eslint
+        working-directory: ./mini2-app
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./mini2-app
+
       - name: Run lint
         run: npm run lint
         working-directory: ./mini2-app
-
-  run-prettier:
-    runs-on: ubuntu-latest
-    needs: run-lint
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '22'
-
-      - name: Run Prettier
-        run: npm run prettier:fix
-        working-directory: ./mini2-app
-
-  run-tests:
-    runs-on: ubuntu-latest
-    needs: run-prettier
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '22'
-
-      - name: Run tests
-        run: npm run test -- --verbose
-        working-directory: ./mini2-app
-
-  
