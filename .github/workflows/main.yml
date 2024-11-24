@@ -61,7 +61,7 @@ jobs:
         working-directory: ./mini2-app
 
       - name: Run Prettier
-        run: npm run prettier
+        run: npm run prettier:fix
         working-directory: ./mini2-app
 
   run-tests:
@@ -81,5 +81,5 @@ jobs:
         working-directory: ./mini2-app
 
       - name: Run tests
-        run: npx jest --config jest.config.ts
+        run: npm run test -- --verbose
         working-directory: ./mini2-app

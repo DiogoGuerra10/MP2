@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types'; // Importando PropTypes
 
 const Odds = ({ sportKey, apiKey, regions, markets }) => {
-  const { data: odds, error: oddsError, isLoading: oddsLoading } = useGetOddsQuery({
+  const {
+    data: odds,
+    error: oddsError,
+    isLoading: oddsLoading,
+  } = useGetOddsQuery({
     sportKey,
     apiKey,
     regions,
@@ -19,7 +23,9 @@ const Odds = ({ sportKey, apiKey, regions, markets }) => {
         <ul>
           {odds.map((odd) => (
             <li key={odd.key}>
-              <p>{odd.title} - {odd.odds}</p>
+              <p>
+                {odd.title} - {odd.odds}
+              </p>
             </li>
           ))}
         </ul>
