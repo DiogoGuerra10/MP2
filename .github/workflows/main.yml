@@ -88,6 +88,20 @@ jobs:
         run: npm run test -- --verbose
         working-directory: ./mini2-app
 
+      - name: List coverage files
+        run: |
+          echo "Listing coverage files..."
+          ls -R ./mini2-app/coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./mini2-app/coverage/coverage-final.json
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true
+
   Vercel-Preview-Deploy:
     runs-on: ubuntu-latest
     needs: run-tests

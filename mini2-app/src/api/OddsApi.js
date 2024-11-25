@@ -11,8 +11,8 @@ export const oddsApi = createApi({
     }),
     // Endpoint para pegar as odds de um esporte específico com os parâmetros regions e markets
     getOdds: builder.query({
-      query: ({ sportKey, apiKey, regions = 'us', markets = 'h2h' }) =>
-        `sports/${sportKey}/odds/?apiKey=${apiKey}&regions=${regions}&markets=${markets}`,
+      query: ({ sportKey, apiKey, regions = 'us' }) =>
+        `sports/${sportKey}/odds/?apiKey=${apiKey}&regions=${regions}`,
     }),
   }),
 });
