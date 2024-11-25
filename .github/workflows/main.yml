@@ -85,7 +85,7 @@ jobs:
         working-directory: ./mini2-app
 
       - name: Run tests
-        run: npm run test -- --verbose
+        run: npm run test -- --coverage
         working-directory: ./mini2-app
 
       - name: List coverage files
