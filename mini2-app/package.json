@@ -23,7 +23,8 @@
     "lint": "eslint .",
     "tsc": "tsc",
     "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write ."
+    "prettier:fix": "prettier --write .",
+    "coverage": "jest --coverage"
   },
   "eslintConfig": {
     "extends": [
