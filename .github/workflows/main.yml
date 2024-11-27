@@ -9,7 +9,7 @@ on:
       - dev
 
 jobs:
-  install-dependencies:
+  install-and-check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -18,93 +18,31 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22'
+          node-version: "22"
 
       - name: Install dependencies
         run: npm install
         working-directory: ./mini2-app
-
-  run-lint:
-    runs-on: ubuntu-latest
-    needs: install-dependencies
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '22'
 
       - name: Install ESLint globally
         run: npm install -g eslint
-        working-directory: ./mini2-app
-
-      - name: Install dependencies
-        run: npm install
         working-directory: ./mini2-app
 
       - name: Run lint
         run: npm run lint
         working-directory: ./mini2-app
 
-  run-prettier:
-    runs-on: ubuntu-latest
-    needs: run-lint
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '22'
-
-      - name: Install dependencies
-        run: npm install
-        working-directory: ./mini2-app
-
       - name: Run Prettier
         run: npm run prettier:fix
-        working-directory: ./mini2-app
-
-  run-tests:
-    runs-on: ubuntu-latest
-    needs: run-prettier
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '22'
-
-      - name: Install dependencies
-        run: npm install
         working-directory: ./mini2-app
 
       - name: Run tests
         run: npm run test -- --coverage
         working-directory: ./mini2-app
 
-      - name: List coverage files
-        run: |
-          echo "Listing coverage files..."
-          ls -R ./mini2-app/coverage
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./mini2-app/coverage/coverage-final.json
-          flags: unittests
-          name: codecov-umbrella
-          fail_ci_if_error: true
-
   Vercel-Preview-Deploy:
     runs-on: ubuntu-latest
-    needs: run-tests
+    needs: install-and-check
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -131,11 +69,10 @@ jobs:
 
       - name: Build Project Artifacts
         run: |
-           vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
-           vercel build --token=${{ secrets.VERCEL_TOKEN }}
+          vercel build --token=${{ secrets.VERCEL_TOKEN }}
         working-directory: ./mini2-app
 
-      - name: Deploy to Vercel
+      - name: Deploy to Vercel Preview
         run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
         working-directory: ./mini2-app
 
@@ -170,6 +107,6 @@ jobs:
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
         working-directory: ./mini2-app
 
-      - name: Deploy to Vercel
+      - name: Deploy to Vercel Production
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
         working-directory: ./mini2-app
