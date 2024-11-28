@@ -53,6 +53,10 @@ const Homepage = () => {
             API
           </TechItem>
           <TechItem>
+            🚀 <strong>Redux Thunk</strong> - Middleware para lidar com ações
+            assíncronas no Redux
+          </TechItem>
+          <TechItem>
             🎨 <strong>Styled Components</strong> - Biblioteca para estilização
             de componentes React
           </TechItem>
