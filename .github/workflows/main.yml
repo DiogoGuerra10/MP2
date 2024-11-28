@@ -1,3 +1,4 @@
+
 name: Mini2 CI Pipeline
 
 on:
@@ -112,3 +113,6 @@ jobs:
       - name: Deploy to Vercel Production
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
         working-directory: ./mini2-app
+
+
+
