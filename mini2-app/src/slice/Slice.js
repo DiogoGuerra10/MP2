@@ -1,15 +1,15 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchOddsData } from '../api/OddsApi'; // Importa a função da api
 
-// Thunk assíncrono para buscar odds da api
+// Thunk assíncrono para ir buscar as odds da api
 export const fetchOdds = createAsyncThunk(
   'odds/fetchOdds',
   async (_, thunkAPI) => {
     try {
       const data = await fetchOddsData();
-      return data; // Retorna os dados para o estado
+      return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message); // Trata erros
+      return thunkAPI.rejectWithValue(error.message);
     }
   },
 );
@@ -33,7 +33,7 @@ const oddsSlice = createSlice({
       })
       .addCase(fetchOdds.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.payload; // Armazena a mensagem de erro
+        state.error = action.payload;
       });
   },
 });

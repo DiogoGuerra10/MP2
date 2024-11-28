@@ -60,6 +60,9 @@ const Homepage = () => {
             🎨 <strong>Styled Components</strong> - Biblioteca para estilização
             de componentes React
           </TechItem>
+          <TechItem>
+            📋 <strong>PropTypes</strong> - Ferramenta para validação de props
+          </TechItem>
         </TechList>
       </Section>
 

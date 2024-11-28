@@ -5,11 +5,11 @@ export const oddsApi = createApi({
   reducerPath: 'oddsApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://api.the-odds-api.com/v4/' }),
   endpoints: (builder) => ({
-    // Endpoint para pegar a lista de esportes
+    // Endpoint para ir buscar a lista de desportos
     getSports: builder.query({
       query: (apiKey) => `sports/?apiKey=${apiKey}`,
     }),
-    // Endpoint para pegar as odds de um esporte específico com os parâmetros regions e markets
+    // Endpoint para ir buscar as odds de um desporto
     getOdds: builder.query({
       query: ({ sportKey, apiKey, regions = 'us' }) =>
         `sports/${sportKey}/odds/?apiKey=${apiKey}&regions=${regions}`,
