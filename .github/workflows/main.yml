@@ -3,9 +3,11 @@ name: Mini2 CI Pipeline
 on:
   push:
     branches:
+      - main
       - dev
   pull_request:
     branches:
+      - main
       - dev
 
 jobs:
