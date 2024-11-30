@@ -305,33 +305,33 @@ Odds.propTypes = {
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: center; /* Ajusta o espaço entre os itens */
+  justify-content: center;
   padding: 20px;
   background-color: #f1f1f1;
   min-height: 100vh;
-  margin-top: 60px; /* Ajuste da margem para não sobrepor com a navbar */
+  margin-top: 60px;
 
   @media (max-width: 768px) {
-    flex-direction: column; /* Coloca os cards e filtros em coluna */
+    flex-direction: column;
     align-items: center;
-    padding-top: 80px; /* Adiciona espaçamento no topo para não sobrepor a navbar */
+    padding-top: 80px;
   }
 `;
 
 const MainContent = styled.div`
-  flex: 0 0 80%; /* Ocupa 80% da largura disponível */
+  flex: 0 0 80%;
   padding: 20px;
 `;
 
 const Sidebar = styled.div`
   flex: 0 0 20%;
   padding: 20px;
-  background-color: transparent; /* Remover fundo branco */
+  background-color: transparent;
 
   border-radius: 8px;
   @media (max-width: 768px) {
-    flex: 0 0 100%; /* Filtros ocupam toda a largura em telas pequenas */
-    margin-bottom: 20px; /* Espaçamento abaixo dos filtros */
+    flex: 0 0 100%;
+    margin-bottom: 20px;
   }
 `;
 const Title = styled.div`
@@ -366,7 +366,7 @@ const GamesContainer = styled.div`
   padding: 20px;
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr; /* Em telas menores, exibe os cards em uma coluna */
+    grid-template-columns: 1fr;
     padding: 10px;
   }
 `;
@@ -440,12 +440,12 @@ const OddsButton = styled.button`
 `;
 
 const StyledLink = styled(Link)`
-  text-decoration: none; /* Remove o sublinhado */
-  color: inherit; /* Faz com que o texto herde a cor do seu pai (sem a cor azul) */
+  text-decoration: none;
+  color: inherit;
 
   &:hover {
-    text-decoration: none; /* Remove o sublinhado também no hover */
-    color: inherit; /* Mantém a cor ao passar o mouse */
+    text-decoration: none;
+    color: inherit;
   }
 `;
 

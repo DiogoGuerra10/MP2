@@ -84,11 +84,10 @@ const Homepage = () => {
   );
 };
 
-// Estilos com Styled Components
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Garante que a altura mínima seja a altura da tela */
+  min-height: 100vh;
 
   font-family: Arial, sans-serif;
   color: #333;
@@ -106,9 +105,9 @@ const Subtitle = styled.h2`
 
 const Section = styled.section`
   margin-bottom: 40px;
-  padding: 20px; /* Adiciona padding dentro das seções */
-  flex: 1; /* Isso permite que a seção principal ocupe o espaço restante */
-  border-radius: 8px; /* Bordas arredondadas */
+  padding: 20px;
+  flex: 1;
+  border-radius: 8px;
 `;
 
 const TechList = styled.ul`
@@ -122,12 +121,12 @@ const TechItem = styled.li`
 `;
 
 const Footer = styled.footer`
-  width: 100%; /* Faz com que o Footer ocupe 100% da largura */
+  width: 100%;
   text-align: center;
   padding: 20px;
   background-color: #00ba60;
   color: #fff;
-  margin-top: 40px; /* Adiciona espaço entre o conteúdo e o footer */
+  margin-top: 40px;
 `;
 
 const FooterLink = styled.a`

@@ -578,15 +578,14 @@ const TeamMatches = styled.div`
     margin-bottom: 5px;
   }
 
-  /* Ajuste para o awayTeam para alinhar à direita */
   &:nth-child(2) {
-    text-align: right; /* Isso vai alinhar o conteúdo à direita */
+    text-align: right;
   }
 
   @media (max-width: 768px) {
     width: 100%;
     margin-bottom: 20px;
-    text-align: center; /* Quando em tela pequena, alinha os dois ao centro */
+    text-align: center;
   }
 `;
 
