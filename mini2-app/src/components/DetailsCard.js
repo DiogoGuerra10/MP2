@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { ClipLoader } from 'react-spinners';
 
 const DetailsCard = () => {
   const { competition, homeTeam, awayTeam } = useParams();
@@ -359,7 +360,12 @@ const DetailsCard = () => {
   }, [competition]);
 
   if (loading) {
-    return <LoadingMessage>Carregando estatísticas...</LoadingMessage>;
+    return (
+      <LoadingContainer>
+        <ClipLoader color="#36d7b7" size={50} />
+        <p>Carregando estatísticas...</p>
+      </LoadingContainer>
+    );
   }
 
   if (error) {
@@ -499,14 +505,20 @@ const Wrapper = styled.div`
   min-height: 100vh;
 `;
 
-const LoadingMessage = styled.p`
-  font-size: 1.2rem;
-  color: #555;
+const LoadingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; // para centralizar verticalmente
+  text-align: center;
 `;
 
-const ErrorMessage = styled.p`
-  font-size: 1.2rem;
+const ErrorMessage = styled.div`
   color: red;
+  font-size: 1.2em;
+  text-align: center;
+  margin-top: 20px;
 `;
 
 const Title = styled.h1`

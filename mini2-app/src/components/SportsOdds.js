@@ -4,6 +4,7 @@ import { useGetSportsQuery, useGetOddsQuery } from '../api/OddsApi.js';
 import styled from 'styled-components';
 import CompetitionsFilter from './CompetitionsFilter.js';
 import { Link } from 'react-router-dom';
+import { ClipLoader } from 'react-spinners';
 
 //Import das imagens
 import Benfica from '../images/benfica.jpeg';
@@ -104,7 +105,12 @@ const SportsOdds = () => {
   const [selectedCompetition, setSelectedCompetition] = useState(null);
 
   if (sportsLoading)
-    return <LoadingMessage>A carregar jogos...</LoadingMessage>;
+    return (
+      <LoadingMessage>
+        <ClipLoader color="#00ba60" size={50} />
+        <p>A carregar jogos...</p>
+      </LoadingMessage>
+    );
   if (sportsError)
     return (
       <ErrorMessage>Erro ao carregar jogos: {sportsError.message}</ErrorMessage>
@@ -266,7 +272,12 @@ const Odds = ({ sportKey, apiKey, regions, children }) => {
   const dataToRender = cache[sportKey] || odds;
 
   if (oddsLoading && !dataToRender)
-    return <LoadingMessage>Carregando odds...</LoadingMessage>;
+    return (
+      <LoadingMessage>
+        <ClipLoader color="#00ba60" size={50} />
+        <p>A carregar odds...</p>
+      </LoadingMessage>
+    );
   if (oddsError)
     return (
       <ErrorMessage>Erro ao carregar odds: {oddsError.message}</ErrorMessage>
@@ -347,7 +358,11 @@ const Title = styled.div`
   font-weight: bold;
 `;
 
-const LoadingMessage = styled.p`
+const LoadingMessage = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-size: 1.2rem;
   color: #555;
 `;
