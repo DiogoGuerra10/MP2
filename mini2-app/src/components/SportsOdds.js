@@ -95,7 +95,7 @@ const assignOddsCorrectly = (homeOdds, awayOdds, drawOdds) => {
 
 // Componente principal para exibir os jogos
 const SportsOdds = () => {
-  const apiKey = '423f5d929009729339fc15952a02e029';
+  const apiKey = '1c775cc13d547af5bda53f852aab20d7';
   const {
     data: sports,
     error: sportsError,

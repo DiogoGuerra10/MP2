@@ -164,7 +164,7 @@ const DetailsCard = () => {
   const fetchCompetitionTitle = async () => {
     try {
       const response = await fetch(
-        `https://api.the-odds-api.com/v4/sports/?apiKey=423f5d929009729339fc15952a02e029`,
+        `https://api.the-odds-api.com/v4/sports/?apiKey=1c775cc13d547af5bda53f852aab20d7`,
       );
 
       if (!response.ok) {
@@ -252,7 +252,7 @@ const DetailsCard = () => {
   const fetchStats = async () => {
     try {
       const response = await fetch(
-        `https://api.the-odds-api.com/v4/sports/${competition}/scores/?daysFrom=3&apiKey=423f5d929009729339fc15952a02e029`,
+        `https://api.the-odds-api.com/v4/sports/${competition}/scores/?daysFrom=3&apiKey=1c775cc13d547af5bda53f852aab20d7`,
       );
 
       if (!response.ok) {
