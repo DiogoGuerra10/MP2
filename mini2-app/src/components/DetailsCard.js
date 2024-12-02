@@ -199,7 +199,6 @@ const DetailsCard = () => {
       }
 
       const data = await response.json();
-      console.log('casa pia', data);
 
       if (!data || !data.response.matches) {
         throw new Error('Nenhum jogo encontrado para esta liga');
